@@ -80,6 +80,7 @@ def main():
         num = spin() #spin the roulette and get winning number
         print(num)
         print(bet,pnums)
+        break       #temporary break statement
 
 
 if __name__ == '__main__':
