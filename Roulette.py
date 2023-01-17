@@ -37,25 +37,33 @@ def spin():
     return x
 
 def single():
+    bet = int(input('How much would you like to bet per number?'))
     nums = []
     keepbetting = 'y'
     while keepbetting == 'y':
-        num = int(input('Enter the number you would like to bet on (-1 for 00)'))
+        num = int(input('Enter the number you would like to bet on (-1 for 00): '))
         nums.append(num)
-        keepbetting = input('Would you like to keep betting? y/n')
-    return nums
+        keepbetting = input('Would you like to keep betting? y/n: ')
+    return bet,nums
+
+def single_winner(bet):
+    return bet * 35
+
+def color_bet():
+    print('Please choose a color')
+    color = int(input('Choose 1 for Red or 2 for black'))
+    if color == 1:
+        return 'red'
+    if color == 2:
+        return 'black'
 
     
-
-        
-
 def main():
 
     colorMap = {-1:'green', 0:'green',1:'red', 2:'black', 3:'red', 4:'black', 5:'red', 6:'black',
     7:"red", 8:'black', 9:'red', 10:'black', 11:'black', 12:'red', 13:'black', 14:'red', 15:'black',
     16:'red', 17:'black', 18:'red', 19:'black', 20:'black', 21:'red', 22:'black', 23:'red', 24:'black',
     25:'red', 26:'black', 27:'red', 28:'red', 29:'black', 30:'red', 31:'black', 32:'red', 33:'black', 34:'red', 35:'black', 36:'red'}
-
     name = input("What is your name? = ")                   #User input for name
     Player1 = Player(name, 100)                             #Creates Player object with given name parameter and 100 starting bankroll
     Player1.getStr()
@@ -66,12 +74,14 @@ def main():
         if (Player1.getBalance() <= 1):                                                 #Ends main loop if player attempts to play with 0 dollars
             print("You ran out of money!")
             break
-        x = spin()
+        x = single() # get bet amt and numbers for single number bets
+        bet = x[0] #assign bet amt to bet
+        pnums = x[1] #assign player numbers to pnums
+        num = spin() #spin the roulette and get winning number
+        print(num)
+        print(bet,pnums)
 
-        print(x,colorMap[x])
-        keepPlaying = 'n'
 
+if __name__ == '__main__':
+   main()
 
-
-#if __name__ == '__main__':
-   # main()
