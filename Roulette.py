@@ -78,9 +78,23 @@ def main():
         bet = x[0] #assign bet amt to bet
         pnums = x[1] #assign player numbers to pnums
         num = spin() #spin the roulette and get winning number
-        print(bet,pnums)
+        print('You bet',bet,'dollars each on numbers: ',pnums)
         print('The roll is',num, colorMap[num])
-        break       #temporary break statement
+        if num in pnums:
+            print('Congrats you hit the number!')
+            bet = single_winner(bet)
+            Player1.winner(bet)
+            Player1.getStr()
+        else:
+            print('Better luck next roll')
+            Player1.loser((bet * len(pnums)))
+            Player1.getStr()
+        keepPlaying = input('Would you like to keep playing? ')
+    money = Player1.getBalance()
+    if money > 100:
+        print('You beat the house!')
+    elif money < 100:
+        print('Better luck next time!')
 
 
 if __name__ == '__main__':
