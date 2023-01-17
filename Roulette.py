@@ -57,7 +57,7 @@ def color_bet():
     if color == 2:
         return 'black'
 
-    
+
 def main():
 
     colorMap = {-1:'green', 0:'green',1:'red', 2:'black', 3:'red', 4:'black', 5:'red', 6:'black',
@@ -78,8 +78,8 @@ def main():
         bet = x[0] #assign bet amt to bet
         pnums = x[1] #assign player numbers to pnums
         num = spin() #spin the roulette and get winning number
-        print(num)
         print(bet,pnums)
+        print('The roll is',num, colorMap[num])
         break       #temporary break statement
 
 
