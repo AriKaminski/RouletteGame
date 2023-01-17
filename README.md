@@ -2,4 +2,4 @@
 
 This is a repository to simulate a Roulette game at a Casino
 
-To play, enter your name and start betting!
+To play, run file in terminal, enter your name and start betting!
