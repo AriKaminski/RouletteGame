@@ -36,6 +36,18 @@ def spin():
     x = random.randint(-1,36)
     return x
 
+def single():
+    nums = []
+    keepbetting = 'y'
+    while keepbetting == 'y':
+        num = int(input('Enter the number you would like to bet on (-1 for 00)'))
+        nums.append(num)
+        keepbetting = input('Would you like to keep betting? y/n')
+    return nums
+
+    
+
+        
 
 def main():
 
@@ -61,5 +73,5 @@ def main():
 
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+   # main()
